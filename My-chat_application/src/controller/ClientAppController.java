@@ -48,6 +48,10 @@ public class ClientAppController {
     public void sentStickerOnMouseClicked(MouseEvent mouseEvent) {
     }
 
-    public void sent_massageOnMouseClicked(MouseEvent mouseEvent) {
+    public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        dataOutputStream.writeUTF(txtMsg.getText());
+        reply = txtMsg.getText();
+        txtAreaMsg.appendText("\nClient-01 : " + reply);
+        dataOutputStream.flush();
     }
 }
