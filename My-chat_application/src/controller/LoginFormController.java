@@ -30,9 +30,6 @@ public class LoginFormController {
             scene = FXMLLoader.load(getClass().getResource("../view/ClientApp.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
-//            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ClientApp.fxml"))));
-//            stage.show();
-
         }
         Users.add(userName);
     }

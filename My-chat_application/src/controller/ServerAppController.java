@@ -17,9 +17,11 @@ public class ServerAppController {
 
     String massage = "", reply = "";
 
+    public String name=LoginFormController.userName;
+
+
     public void initialize() {
         CheckClient();
-
     }
 
     private void CheckClient() {
@@ -29,14 +31,14 @@ public class ServerAppController {
                 ServerSocket serverSocket = new ServerSocket(PORT);
                 txtAreaMsg.appendText("Server Start.!");
                 Socket localSocket = serverSocket.accept();
-                txtAreaMsg.appendText("\nClient " + LoginFormController.userName + " Connected..!");
+                txtAreaMsg.appendText("\nClient " + name + " Connected..!");
                 txtAreaMsg.appendText("\n.............................................\n");
 
                 dataInputStream = new DataInputStream(localSocket.getInputStream());
 
                 while (!massage.equals("Exit")) {
                     massage = dataInputStream.readUTF();
-                    txtAreaMsg.appendText("\n" + LoginFormController.userName + " : " + massage);
+                    txtAreaMsg.appendText("\n" + name + " : " + massage);
                 }
 
             } catch (IOException e) {

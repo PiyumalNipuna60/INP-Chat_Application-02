@@ -25,6 +25,7 @@ public class ClientAppController {
     DataInputStream dataInputStream;
 
     String massage = "", reply = "";
+    public static String name=LoginFormController.userName;
 
     public void initialize() {
 
@@ -45,7 +46,7 @@ public class ClientAppController {
                 e.printStackTrace();
             }
         }).start();
-        txtClientName.setText(LoginFormController.userName);
+        txtClientName.setText(name);
     }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
@@ -101,7 +102,7 @@ public class ClientAppController {
     public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText());
         reply = txtMsg.getText();
-        txtAreaMsg.appendText("\n" + LoginFormController.userName + " : " + reply);
+        txtAreaMsg.appendText("\n" + name + " : " + reply);
         dataOutputStream.flush();
     }
 
