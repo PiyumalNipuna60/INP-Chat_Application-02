@@ -7,7 +7,9 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class ClientAppController {
     public Label txtClientName;
@@ -19,6 +21,26 @@ public class ClientAppController {
     DataInputStream dataInputStream;
 
     String massage = "", reply = "";
+
+    public void initialize() {
+        new Thread(() -> {
+            try {
+                socket = new Socket("localhost", PORT);
+                txtAreaMsg.appendText("Accept Client..!");
+                txtAreaMsg.appendText("\n.............................................\n");
+
+                dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                dataInputStream = new DataInputStream(socket.getInputStream());
+
+                while (!massage.equals("Exit")) {
+                    massage = dataInputStream.readUTF();
+                    txtAreaMsg.appendText("\nServer : " + massage);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) {
     }
