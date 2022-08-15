@@ -9,6 +9,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+<AnchorPane prefHeight="365.0" prefWidth="606.0" style="-fx-background-color: #bdc3c7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+    <children>
+      <ImageView fitHeight="364.0" fitWidth="605.0" pickOnBounds="true">
+         <image>
+            <Image url="@assets/890a76f4b4d4197fc2359758ece06fd5.png" />
+         </image>
+      </ImageView>
+        <AnchorPane layoutX="-2.0" prefHeight="37.0" prefWidth="607.0" style="-fx-background-color: #2ecc71;">
+            <children>
+                <Label layoutX="12.0" layoutY="5.0" text="Live Chat" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
 
+        <TextField fx:id="txtUserName" layoutX="130.0" layoutY="278.0" prefHeight="31.0" prefWidth="241.0" promptText="User Name" style="-fx-border-color: black;">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </TextField>
+        <Button fx:id="btnLogIn" layoutX="392.0" layoutY="279.0" mnemonicParsing="false" onAction="#btnLogInOnAction" prefHeight="31.0" prefWidth="105.0" style="-fx-border-color: #2c3e50;" text="Log in">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="96.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assets/loading-icon-animated-gif-7.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="215.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assets/492851_admin_256x256.png" />
+            </image>
+        </ImageView>
+    </children>
 </AnchorPane>
