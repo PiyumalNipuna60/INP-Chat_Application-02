@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="572.0" style="-fx-background-color: #C1EFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientAppController">
+<AnchorPane prefHeight="400.0" prefWidth="572.0" style="-fx-background-color: #C1EFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientAppController">
     <children>
         <AnchorPane layoutY="-1.0" prefHeight="44.0" prefWidth="579.0" style="-fx-background-color: #2980b9;">
             <children>
@@ -15,6 +20,11 @@
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
+            <Button layoutX="469.0" layoutY="10.0" mnemonicParsing="false" onAction="#AnotherChatOnAction" prefHeight="26.0" prefWidth="98.0" style="-fx-border-radius: 3px; -fx-background-color: #8FE3CF;" text="Another Chat">
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </Button>
             </children>
         </AnchorPane>
       <TextArea fx:id="txtAreaMsg" layoutX="15.0" layoutY="62.0" prefHeight="280.0" prefWidth="546.0" />

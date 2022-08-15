@@ -1,21 +1,25 @@
 package controller;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+
+import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class ClientAppController {
     public Label txtClientName;
     public TextArea txtAreaMsg;
     public TextField txtMsg;
-    final int PORT=9005;
+    final int PORT = 9005;
     Socket socket;
     DataOutputStream dataOutputStream;
     DataInputStream dataInputStream;
@@ -23,6 +27,7 @@ public class ClientAppController {
     String massage = "", reply = "";
 
     public void initialize() {
+
         new Thread(() -> {
             try {
                 socket = new Socket("localhost", PORT);
@@ -40,18 +45,69 @@ public class ClientAppController {
                 e.printStackTrace();
             }
         }).start();
+        txtClientName.setText(LoginFormController.userName);
     }
 
-    public void sentImageOnMouseClicked(MouseEvent mouseEvent) {
+    public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Image");
+        File filePath = fileChooser.showOpenDialog(stage);
+        ObjectOutputStream dataOutputStreamImg = new ObjectOutputStream(socket.getOutputStream());
+        // dataOutputStreamImg.writeUTF();
+        txtAreaMsg.appendText("img" + filePath.getPath());
     }
 
     public void sentStickerOnMouseClicked(MouseEvent mouseEvent) {
+//        String jaString = new String("view/assets/");
+//        writeOutput(jaString);
+//        String inputString = readInput();
+//        String displayString = jaString + " " + inputString;
+//        txtAreaMsg.appendText(displayString);
+//        txtAreaMsg.appendText("Conversion Demo");
+//    }
+//
+//    private void writeOutput(String str) {
+//        try {
+//            FileOutputStream fos = new FileOutputStream("test.txt");
+//            Writer out = new OutputStreamWriter(fos, "UTF8");
+//            out.write(str);
+//            out.close();
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    private String readInput() {
+//        StringBuffer buffer = new StringBuffer();
+//        try {
+//            FileInputStream fis = new FileInputStream("test.txt");
+//            InputStreamReader isr = new InputStreamReader(fis, "UTF8");
+//            Reader in = new BufferedReader(isr);
+//            int ch;
+//            while ((ch = in.read()) > -1) {
+//                buffer.append((char)ch);
+//            }
+//            in.close();
+//            return buffer.toString();
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
     }
 
     public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText());
         reply = txtMsg.getText();
-        txtAreaMsg.appendText("\nClient-01 : " + reply);
+        txtAreaMsg.appendText("\n" + LoginFormController.userName + " : " + reply);
         dataOutputStream.flush();
+    }
+
+    public void AnotherChatOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+        stage.show();
     }
 }
