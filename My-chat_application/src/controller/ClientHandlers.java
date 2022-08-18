@@ -28,7 +28,7 @@ public class ClientHandlers extends Thread {
                 if (msg.equalsIgnoreCase("Exit")) {
                     break;
                 }
-                for (ClientHandlers cl:clients){
+                for (ClientHandlers cl : clients) {
                     cl.writer.println(msg);
                     System.out.println(msg);
                 }
@@ -36,7 +36,14 @@ public class ClientHandlers extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        finally {
+            try {
+                in.close();
+                writer.close();
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
-
-
 }
