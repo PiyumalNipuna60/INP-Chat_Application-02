@@ -14,7 +14,7 @@ public class ServerInitializer2 {
         ServerSocket serverSocket;
         Socket socket;
         try {
-            serverSocket = new ServerSocket(5002);
+            serverSocket = new ServerSocket(5003);
             while (true){
                 System.out.println("Waiting");
                 socket = serverSocket.accept();
