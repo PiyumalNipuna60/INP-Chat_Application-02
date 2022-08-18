@@ -33,4 +33,8 @@ public class LoginFormController {
         }
         Users.add(userName);
     }
+
+    public void btnSignInOnAction(ActionEvent actionEvent) {
+
+    }
 }
