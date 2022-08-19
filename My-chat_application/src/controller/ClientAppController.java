@@ -1,22 +1,19 @@
 package controller;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import static controller.LoginFormController.userName;
 
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+
+import static controller.LoginFormController.userName;
 
 public class ClientAppController {
     public Label txtClientName;
@@ -24,7 +21,7 @@ public class ClientAppController {
     public VBox vBoxPane1;
     public AnchorPane emojiPane;
     public AnchorPane clientContext;
-    Socket socket=null;
+    Socket socket = null;
     PrintWriter printWriter;
     BufferedReader bufferedReader;
 
@@ -34,8 +31,20 @@ public class ClientAppController {
         connectSocket();
     }
 
-    private void connectSocket(){
+    private void connectSocket() {
+        try {
+            socket = new Socket("localhost", 5003);
+            System.out.println();
+            System.out.println("Connect With Server");
+            System.out.println(userName + " Enter the Chat");
+            System.out.println("____________________");
 
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
+            printWriter = new PrintWriter(socket.getOutputStream(),true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
