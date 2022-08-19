@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 import static controller.LoginFormController.userName;
 
-public class ClientAppController {
+public class ClientAppController extends Thread {
     public Label txtClientName;
     public TextField txtMsg;
     public VBox vBoxPane1;
@@ -40,7 +40,8 @@ public class ClientAppController {
             System.out.println("____________________");
 
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
-            printWriter = new PrintWriter(socket.getOutputStream(),true);
+            printWriter = new PrintWriter(socket.getOutputStream(), true);
+            this.start();
 
         } catch (Exception e) {
             e.printStackTrace();
