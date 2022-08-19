@@ -130,6 +130,11 @@ public class ClientAppController extends Thread {
     }
 
     public void sentStickerOnMouseClicked(MouseEvent mouseEvent) {
+        send();
+        emojiPane.setVisible(false);
+    }
+
+    private void send() {
     }
 
     public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
