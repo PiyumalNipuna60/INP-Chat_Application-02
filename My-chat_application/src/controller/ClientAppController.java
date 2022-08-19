@@ -1,9 +1,11 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.BufferedReader;
@@ -68,6 +70,14 @@ public class ClientAppController extends Thread {
                     break;
                 }
 
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run(){
+                        HBox hBox=new HBox();
+
+
+                    }
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();
