@@ -147,47 +147,63 @@ public class ClientAppController extends Thread {
 //    }
 
     public void oneEmojiOnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji02OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
+
     }
 
     public void Emoji03OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji04OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji05OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji06OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji07OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji08OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji09OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji10OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji11OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji12OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji13OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji14OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 
     public void Emoji15OnMouseClicked(MouseEvent mouseEvent) {
+        sendEmoji();
     }
 }
