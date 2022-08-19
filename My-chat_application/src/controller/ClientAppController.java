@@ -206,4 +206,7 @@ public class ClientAppController extends Thread {
     public void Emoji15OnMouseClicked(MouseEvent mouseEvent) {
         sendEmoji();
     }
+
+    private void sendEmoji() {
+    }
 }
