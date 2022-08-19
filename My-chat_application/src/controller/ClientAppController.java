@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import static controller.LoginFormController.userName;
 
 
 import java.io.*;
@@ -22,8 +23,14 @@ public class ClientAppController {
     public TextField txtMsg;
     public VBox vBoxPane1;
     public AnchorPane emojiPane;
+    public AnchorPane clientContext;
+    Socket socket=null;
+    PrintWriter printWriter;
+    BufferedReader bufferedReader;
 
     public void initialize() {
+        emojiPane.setVisible(false);
+        txtClientName.setText(userName);
     }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
