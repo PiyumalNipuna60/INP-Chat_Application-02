@@ -1,12 +1,17 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -75,7 +80,25 @@ public class ClientAppController extends Thread {
                     public void run(){
                         HBox hBox=new HBox();
 
+                        if (fulMsg.toString().endsWith(".png") || fulMsg.toString().endsWith(".jpg") || fulMsg.toString().endsWith(".jpeg") || fulMsg.toString().endsWith(".gif")){
+                            System.out.println(fulMsg);
+                            hBox.setPadding(new Insets(5, 10, 5, 5));
+                            Text text = new Text(cmd + " ");
+                            text.setStyle("-fx-font-size: 15px");
+                            ImageView imageView = new ImageView();
+                            Image image = new Image(String.valueOf(fulMsg));
+                            imageView.setImage(image);
+                            imageView.setFitWidth(75);
+                            imageView.setFitHeight(75);
+                            TextFlow textFlow=new TextFlow(text,imageView);
+                            textFlow.setStyle("-fx-color:rgb(239,242,255);"
+                                    + "-fx-background-color: rgb(182,182,182);" +
+                                    "-fx-background-radius: 10px");
+                            textFlow.setPadding(new Insets(5, 0, 5, 5));
 
+                            hBox.getChildren().add(textFlow);
+                            vBoxPane1.getChildren().add(hBox);
+                        }
                     }
                 });
             }
