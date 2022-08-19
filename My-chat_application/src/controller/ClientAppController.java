@@ -31,6 +31,11 @@ public class ClientAppController {
     public void initialize() {
         emojiPane.setVisible(false);
         txtClientName.setText(userName);
+        connectSocket();
+    }
+
+    private void connectSocket(){
+
     }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
