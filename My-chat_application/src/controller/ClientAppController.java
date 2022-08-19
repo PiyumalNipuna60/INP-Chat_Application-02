@@ -48,6 +48,32 @@ public class ClientAppController extends Thread {
         }
     }
 
+    public void run() {
+        try {
+            while (true) {
+                String msg = bufferedReader.readLine();
+                System.out.println("Massage : " + msg);
+                String[] token = msg.split(" ");
+                String cmd = token[0];
+                System.out.println("Cmd : " + cmd);
+                StringBuilder fulMsg = new StringBuilder();
+                for (int i = 1; i < token.length; i++) {
+                    fulMsg.append(token[i]);
+                }
+                System.out.println("fulMsg : " + fulMsg);
+                System.out.println();
+                if (cmd.equalsIgnoreCase(userName + " : ")) {
+                    continue;
+                } else if (fulMsg.toString().equalsIgnoreCase("bye")) {
+                    break;
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
     }
 
