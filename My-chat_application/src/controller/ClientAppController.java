@@ -197,14 +197,9 @@ public class ClientAppController extends Thread {
     }
 
     //  emoji ////////
-    public void oneEmojiOnMouseClicked(MouseEvent mouseEvent) {
-//        txtMsg.setText();
-        sendEmoji();
-    }
+    public void oneEmojiOnMouseClicked(MouseEvent mouseEvent) { sendEmoji(); }
 
-    public void Emoji02OnMouseClicked(MouseEvent mouseEvent) {
-        sendEmoji();
-    }
+    public void Emoji02OnMouseClicked(MouseEvent mouseEvent) { sendEmoji(); }
 
     public void Emoji03OnMouseClicked(MouseEvent mouseEvent) {
         sendEmoji();
@@ -259,6 +254,27 @@ public class ClientAppController extends Thread {
     }
 
     public void sendEmoji(){
+        String msg =("\uD83D\uDE42");
+        printWriter.println(userName + ": " + msg);
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.setPadding(new Insets(5, 5, 5, 10));
+        Text text = new Text("Me : "+msg);
+        text.setStyle("-fx-font-size: 15px");
+        TextFlow textFlow = new TextFlow(text);
+        textFlow.setStyle("-fx-color:rgb(239,242,255);"
+                + "-fx-background-color: rgb(15,125,242);" +
+                "-fx-background-radius: 20px");
+        textFlow.setPadding(new Insets(5, 10, 5, 10));
+        text.setFill(Color.color(0.934, 0.945, 0.996));
+        hBox.getChildren().add(textFlow);
+        vBoxPane1.getChildren().add(hBox);
+        printWriter.flush();
+        txtMsg.setText("");
+        if (msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
+            System.exit(0);
+        }
+
 
 //        txtAreaMsg.appendText("Me : "+"\uD83D\uDE42");
     }
