@@ -3,6 +3,7 @@ package controller;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -14,13 +15,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static controller.LoginFormController.userName;
@@ -128,7 +128,30 @@ public class ClientAppController extends Thread {
     }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
-
+        Stage stage=(Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
+        FileChooser fileChooser=new FileChooser();
+        fileChooser.setTitle("Choose a Image");
+        File file=fileChooser.showOpenDialog(stage);
+        if (file!=null){
+            printWriter.println(userName + ": " + file.toURI().toURL());
+        }
+        if (file!=null){
+            System.out.println("File Was Selected");
+            URL url=file.toURI().toURL();
+            System.out.println(url);
+            HBox hBox=new HBox();
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+            hBox.setPadding(new Insets(5, 10, 5, 5));
+            ImageView imageView = new ImageView();
+            Image image = new Image(String.valueOf(url));
+            imageView.setImage(image);
+            imageView.setFitWidth(75);
+            imageView.setFitHeight(75);
+            VBox vBox = new VBox(imageView);
+            vBox.setAlignment(Pos.CENTER_RIGHT);
+            vBox.setPadding(new Insets(5, 10, 5, 5));
+            vBoxPane1.getChildren().add(vBox);
+        }
     }
 
     public void sentStickerOnMouseClicked(MouseEvent mouseEvent) {
@@ -138,7 +161,7 @@ public class ClientAppController extends Thread {
     private void send() {
     }
 
-    public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {s
+    public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
             send();
         emojiPane.setVisible(false);
     }
