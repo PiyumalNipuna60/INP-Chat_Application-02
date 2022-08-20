@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9b59b6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServerAppController">
+    <children>
+        <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #2980b9;">
+            <children>
+                <Label layoutX="14.0" layoutY="7.0" text="Server Chat" textFill="#f5f4f4">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <TextArea fx:id="txtAreaMsg" layoutX="25.0" layoutY="60.0" prefHeight="280.0" prefWidth="546.0" />
+        <TextField fx:id="txtMsg" layoutX="60.0" layoutY="355.0" prefHeight="31.0" prefWidth="435.0" promptText="text" />
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="25.0" layoutY="355.0" onMouseClicked="#sentImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/image-icon-png-6.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="355.0" onMouseClicked="#sentStickerOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/21-216445_free-emoji-icons-in.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="541.0" layoutY="355.0" onMouseClicked="#sent_massageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/send-message-icon-png-24.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+    </children>
+</AnchorPane>

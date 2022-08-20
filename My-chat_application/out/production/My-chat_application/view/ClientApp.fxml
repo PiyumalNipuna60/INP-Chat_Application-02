@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="clientContext" prefHeight="400.0" prefWidth="594.0" style="-fx-background-color: #C1EFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientAppController">
+    <children>
+        <ScrollPane layoutX="15.0" layoutY="60.0" prefHeight="280.0" prefWidth="570.0">
+            <content>
+                <HBox prefHeight="52.0" prefWidth="564.0">
+                    <children>
+                        <VBox fx:id="vBoxPane1" prefHeight="52.0" prefWidth="558.0" />
+                    </children>
+                </HBox>
+            </content>
+        </ScrollPane>
+        <AnchorPane layoutY="-1.0" prefHeight="44.0" prefWidth="592.0" style="-fx-background-color: #2980b9;">
+            <children>
+                <Label fx:id="txtClientName" layoutX="14.0" layoutY="7.0" text="Nipuna" textFill="#f5f4f4">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="31.0" fitWidth="44.0" layoutX="498.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/png-clipart-call-log-logo-iphone-4-iphone-3g-iphone-7-telephone-icon-phone-hd-electronics-text.png.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="31.0" fitWidth="44.0" layoutX="541.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/png-clipart-button-ui-system-icons-facetime-video-call-icon.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <TextField fx:id="txtMsg" layoutX="50.0" layoutY="357.0" prefHeight="31.0" prefWidth="452.0" promptText="text" />
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="15.0" layoutY="357.0" onMouseClicked="#sentImageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assets/image-icon-png-6.jpg" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="511.0" layoutY="357.0" onMouseClicked="#sentStickerOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assets/21-216445_free-emoji-icons-in.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <AnchorPane fx:id="emojiPane" layoutX="362.0" layoutY="223.0" prefHeight="133.0" prefWidth="180.0" style="-fx-background-color: black;">
+            <children>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="9.0" layoutY="7.0" onMouseClicked="#oneEmojiOnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/emoji-emoticon-icon-png-favpng-fnmNLfEDwJwv73WgQ0RK1wLMp.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="41.0" layoutY="7.0" onMouseClicked="#Emoji02OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/1.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="73.0" layoutY="7.0" onMouseClicked="#Emoji03OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/2.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="106.0" layoutY="7.0" onMouseClicked="#Emoji04OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/3.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="140.0" layoutY="7.0" onMouseClicked="#Emoji05OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/4.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="43.0" onMouseClicked="#Emoji06OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/emoji-emoticon-icon-png-favpng-fnmNLfEDwJwv73WgQ0RK1wLMp.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="42.0" layoutY="43.0" onMouseClicked="#Emoji07OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/5.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="74.0" layoutY="43.0" onMouseClicked="#Emoji08OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/6.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="107.0" layoutY="43.0" onMouseClicked="#Emoji09OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/7.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="141.0" layoutY="43.0" onMouseClicked="#Emoji10OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/8.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="79.0" onMouseClicked="#Emoji11OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/emoji-emoticon-icon-png-favpng-fnmNLfEDwJwv73WgQ0RK1wLMp.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="42.0" layoutY="79.0" onMouseClicked="#Emoji12OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/9.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="74.0" layoutY="79.0" onMouseClicked="#Emoji13OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/11.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="107.0" layoutY="79.0" onMouseClicked="#Emoji14OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/12.jpg" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="141.0" layoutY="79.0" onMouseClicked="#Emoji15OnMouseClicked" pickOnBounds="true">
+                    <image>
+                        <Image url="@assets/13.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+            </children></AnchorPane>
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="552.0" layoutY="358.0" onMouseClicked="#sent_massageOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assets/send-message-icon-png-24.jpg" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+        </ImageView>
+    </children>
+</AnchorPane>
