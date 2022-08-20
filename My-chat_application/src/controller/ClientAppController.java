@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -127,17 +128,19 @@ public class ClientAppController extends Thread {
     }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
+
     }
 
     public void sentStickerOnMouseClicked(MouseEvent mouseEvent) {
-        send();
         emojiPane.setVisible(false);
     }
 
     private void send() {
     }
 
-    public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+    public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {s
+            send();
+        emojiPane.setVisible(false);
     }
 
 //    public void AnotherChatOnAction(ActionEvent actionEvent) throws IOException {
