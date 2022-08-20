@@ -8,24 +8,24 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class ClientHandlers extends Thread {
-    private final ArrayList<ClientHandlers> clients;
-    private final Socket socket;
+    private ArrayList<ClientHandlers> clients;
+    private Socket socket;
     public BufferedReader in;
     public PrintWriter writer;
 
     public ClientHandlers(Socket socket, ArrayList<ClientHandlers> clients) throws IOException {
-        this.clients = clients;
-        this.socket = socket;
+        this.clients=clients;
+        this.socket=socket;
         this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        this.writer = new PrintWriter(socket.getOutputStream());
+        this.writer = new PrintWriter(socket.getOutputStream(), true);
     }
 
     @Override
-    public void run() {
+    public void run(){
         try {
             String msg;
             while ((msg = in.readLine()) != null) {
-                if (msg.equalsIgnoreCase("Exit")) {
+                if (msg.equalsIgnoreCase( "exit")) {
                     break;
                 }
                 for (ClientHandlers cl : clients) {
@@ -33,7 +33,7 @@ public class ClientHandlers extends Thread {
                     System.out.println(msg);
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         finally {

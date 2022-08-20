@@ -45,7 +45,7 @@ public class ClientAppController extends Thread {
 
     private void connectSocket() {
         try {
-            socket = new Socket("localhost", 5002);
+            socket = new Socket("localhost", 5003);
             System.out.println("Connect With Server");
             System.out.println(userName+" Enter the Chat");
             System.out.println("____________________");
