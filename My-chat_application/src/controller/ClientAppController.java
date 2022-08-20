@@ -128,18 +128,18 @@ public class ClientAppController extends Thread {
     }
 
     public void sentImageOnMouseClicked(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
-        Stage stage=(Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
-        FileChooser fileChooser=new FileChooser();
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose a Image");
-        File file=fileChooser.showOpenDialog(stage);
-        if (file!=null){
+        File file = fileChooser.showOpenDialog(stage);
+        if (file != null) {
             printWriter.println(userName + ": " + file.toURI().toURL());
         }
-        if (file!=null){
+        if (file != null) {
             System.out.println("File Was Selected");
-            URL url=file.toURI().toURL();
+            URL url = file.toURI().toURL();
             System.out.println(url);
-            HBox hBox=new HBox();
+            HBox hBox = new HBox();
             hBox.setAlignment(Pos.CENTER_RIGHT);
             hBox.setPadding(new Insets(5, 10, 5, 5));
             ImageView imageView = new ImageView();
@@ -155,10 +155,30 @@ public class ClientAppController extends Thread {
     }
 
     public void sentStickerOnMouseClicked(MouseEvent mouseEvent) {
-        emojiPane.setVisible(false);
+        emojiPane.setVisible(true);
     }
 
     private void send() {
+        String msg = txtMsg.getText();
+        printWriter.println(userName + ": " + msg);
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.setPadding(new Insets(5, 5, 5, 10));
+        Text text = new Text("Me : "+msg);
+        text.setStyle("-fx-font-size: 15px");
+        TextFlow textFlow = new TextFlow(text);
+        textFlow.setStyle("-fx-color:rgb(239,242,255);"
+                + "-fx-background-color: rgb(15,125,242);" +
+                "-fx-background-radius: 20px");
+        textFlow.setPadding(new Insets(5, 10, 5, 10));
+        text.setFill(Color.color(0.934, 0.945, 0.996));
+        hBox.getChildren().add(textFlow);
+        vBoxPane1.getChildren().add(hBox);
+        printWriter.flush();
+        txtMsg.setText("");
+        if (msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
+            System.exit(0);
+        }
     }
 
     public void sent_massageOnMouseClicked(MouseEvent mouseEvent) throws IOException {
